@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="app" v-cloak>
+        <h2>My To-Do List</h2><br><br>
+        <ul class="collection">
+            <li class="collection-item" v-for="(todo, i) in todos" style="background-color: black;">
+                <label>
+                    <input type="checkbox" v-model="todo.done" />
+                    <span v-if="todo.done" style="color:white;"><del><b>{{ todo.title }}</b></del></span>
+                    <span v-else style="color:white;"><b>{{ todo.title}}</b></span>
+                </label>
+                <a class="btn-floating btn-small black right" @click="delete_item(i)">
+                    <i class="small material-icons">delete</i>
+                </a>
+            </li>
+            <li>
+                <div class="row">
+                    <div class="input-field col s11">
+                        <input id="first_name" v-model="new_todo" type="text" class="validate" style="color: white;">
+                        <label for="first_name">New Task?</label>
+                    </div><br>
+                    <a class="btn-floating btn-small black" @click="add">
+                        <i class="small material-icons">add</i>
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.fixed-action-btn').floatingActionButton();
+        });
+    </script>
+    <script src="app.js"></script>
+</body>
+
+</html>
