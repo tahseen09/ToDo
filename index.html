@@ -8,6 +8,7 @@
     <title>ToDo</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
     <style>
         body {
             background-color: black;
@@ -22,7 +23,7 @@
 
 <body>
     <div class="container" id="app" v-cloak>
-        <h2>My To-Do List</h2><br><br>
+        <h2 style="font-family: Amatic SC;">To-Do</h2><br><br>
         <ul class="collection">
             <li class="collection-item" v-for="(todo, i) in todos" style="background-color: black;">
                 <label>
@@ -40,7 +41,7 @@
                         <input id="first_name" v-model="new_todo" type="text" class="validate" style="color: white;">
                         <label for="first_name">New Task?</label>
                     </div><br>
-                    <a class="btn-floating btn-small black" @click="add" v-if="new_todo">
+                    <a class="btn-floating btn-small black" @click="add" v-if="new_todo!=''">
                         <i class="small material-icons">add</i>
                     </a>
                 </div>
